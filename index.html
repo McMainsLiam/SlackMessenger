@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+  
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <label for="searchingFor">What is your first name, no spaces and no special characters</label>
+
   <textarea cols="40" rows="8" name="searchingFor" id="searchingFor"></textarea>
+
   <button type="submit" id="b-cancel">Cancel</button>
   <button type="submit" id="b-submit">Submit</button>
-  
 </body>
+
+<script>
+      function saveOptions() {
+        var options = {
+              'name': document.getElementById("searchingFor ").value
+        }
+        return options;
+      }
+      $().ready(function() {
+       if (typeof window.localStorage !== "undefined") {
+       	console.log("Not undefined :)");
+        if (window.localStorage.pebble_doc2_weather_options) {
+          ls_pto = JSON.parse(window.localStorage.pebble_doc2_weather_options);
+            //Sober
+            $("input[name=soberPhrase1]").val(ls_pto["soberPhrase1"]);
+        }
+       }
+        $("#b-cancel").click(function() {
+          console.log("Cancel");
+          document.location = "pebblejs://close";
+        });
+        $("#b-submit").click(function() {
+          console.log("Submit");
+          ls_pto = JSON.stringify(saveOptions());
+          if (typeof window.localStorage !== "undefined") {
+            window.localStorage.pebble_doc2_weather_options = ls_pto;
+          }
+          var location = "pebblejs://close#" + encodeURIComponent(ls_pto);
+          console.log("Warping to: " + location);
+          console.log(location);
+          document.location = location;
+        });
+      });
+    </script>
 </html>
-
-
