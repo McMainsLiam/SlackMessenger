@@ -2,8 +2,19 @@
 <html>
 <body>
 <label for="searchingFor">What is your first name, no spaces and no special characters</label>
+
 <textarea cols="40" rows="8" name="searchingFor" id="searchingFor"></textarea>
+
 <button type="submit" id="b-cancel">Cancel</button>
 <button type="submit" id="b-submit">Submit</button>
 </body>
 </html>
+
+$('#b-cancel').click(function() {
+  document.location = 'pebblejs://close';
+});
+
+$('#b-submit').click(function() {
+  var location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(saveOptions()));
+  document.location = location;
+});
