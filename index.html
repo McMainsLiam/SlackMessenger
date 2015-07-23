@@ -20,29 +20,9 @@
         return options;
       }
       $().ready(function() {
-       if (typeof window.localStorage !== "undefined") {
-       	console.log("Not undefined :)");
-        if (window.localStorage.pebble_doc2_weather_options) {
-          ls_pto = JSON.parse(window.localStorage.pebble_doc2_weather_options);
-            //Sober
-            $("input[name=soberPhrase1]").val(ls_pto["soberPhrase1"]);
-        }
-       }
-        $("#b-cancel").click(function() {
-          console.log("Cancel");
-          document.location = "pebblejs://close";
-        });
-        $("#b-submit").click(function() {
-          console.log("Submit");
-          ls_pto = JSON.stringify(saveOptions());
-          if (typeof window.localStorage !== "undefined") {
-            window.localStorage.pebble_doc2_weather_options = ls_pto;
-          }
-          var location = "pebblejs://close#" + encodeURIComponent(ls_pto);
-          console.log("Warping to: " + location);
-          console.log(location);
-          document.location = location;
-        });
+       $('#b-cancel').click(function() {
+  document.location = 'pebblejs://close';
+});
       });
     </script>
 </html>
