@@ -9,12 +9,3 @@
 <button type="submit" id="b-submit">Submit</button>
 </body>
 </html>
-
-$('#b-cancel').click(function() {
-  document.location = 'pebblejs://close';
-});
-
-$('#b-submit').click(function() {
-  var location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(saveOptions()));
-  document.location = location;
-});
