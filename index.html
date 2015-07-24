@@ -4,13 +4,18 @@
   
   <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <label for="searchingFor">What is your first name, no spaces and no special characters</label>
-
+  
+  <label for="searchingFor">What name do you want to display?</label>
   <textarea cols="40" rows="8" name="searchingFor" id="searchingFor"></textarea>
   <br></br>
   
   <label for="searchingFor">What is the name of the slack channel you would like to join? Don't put the # symbol, just the name</label>
   <textarea cols="40" rows="8" name="searchingFor2" id="searchingFor2"></textarea>
+  <br></br>
+  
+  <label for="searchingFor">What message would you like to send?</label>
+  <textarea cols="40" rows="8" name="searchingFor3" id="searchingFor3"></textarea>
+  <br></br>
 
   <button type="submit" id="b-cancel">Cancel</button>
   <button type="submit" id="b-submit">Submit</button>
@@ -20,7 +25,8 @@
       function saveOptions() {
         var options = {
               'name': document.getElementById("searchingFor").value,
-              'channel' : document.getElementById("searchingFor2").value
+              'channel' : document.getElementById("searchingFor2").value,
+              'text' : document.getElementById("searchingFor3").value
         }
         return options;
       }
