@@ -8,7 +8,7 @@ static int firstKey = 0;
 AppTimer *refresh_timer;
 
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
-  text_layer_set_text(text_layer, "Select");
+  text_layer_set_text(text_layer, "Message Sent!");
   
   DictionaryIterator *iter;
   app_message_outbox_begin(&iter);

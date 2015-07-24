@@ -22,7 +22,7 @@ Pebble.addEventListener('appmessage',
             console.log("http://slack.com/api/chat.postMessage?token=xoxp-7213939015-8008024306-8080898515-243d00&channel=" + encodeURI(channel) + "&text=" + encodeURI(text) + "&username=" + encodeURI(name) + "&pretty=1");
             if (name !== null & name !== "") {
                 var req1 = new XMLHttpRequest();
-                req1.open('GET', 'http://slack.com/api/chat.postMessage?token=xoxp-7213939015-8008024306-8080898515-243d00&channel=' + encodeURI(channel) + '&text=' + encodeURI(text) + '&username=' + encodeURI(name) + '&icon_url=' + encodeURI(imageURL) + '&pretty=1', true);
+                req1.open('GET', 'https://slack.com/api/chat.postMessage?token=xoxp-7213939015-8005854450-8065247734-2d7ab5&channel=%23' + channel + '&text=' + encodeURI(text) + '&username=' + encodeURI(name) + '&pretty=1', true);
                 req1.onload = function(e){};
                 req1.send();
             
