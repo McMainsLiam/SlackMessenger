@@ -5,9 +5,7 @@
 static Window *window;
 static TextLayer *text_layer;
 static int firstKey = 0;
-
-void out_sent_handler(DictionaryIterator *sent, void *context){}
-void in_drop_handler(AppMessageResult reason, void *context){}
+AppTimer *refresh_timer;
 
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   text_layer_set_text(text_layer, "Select");
@@ -43,6 +41,8 @@ static void click_config_provider(void *context) {
 static void window_load(Window *window) {
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
+
+
 
   text_layer = text_layer_create((GRect) { .origin = { 0, 72 }, .size = { bounds.size.w, 20 } });
   text_layer_set_text(text_layer, "Press a button");
